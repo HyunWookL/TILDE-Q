@@ -30,6 +30,8 @@ TILDE-Q can significantly improve performance of state-of-the-art models, includ
 
 ![alt text](./tables/NSFormer_results.JPG)
 
+![alt text](./tables/NLinear_results.JPG)
+
 
 ## Qualitative Examples
 We additionally provide our qualitative examples with all the settings on six datasets and five models in `qualitative_results`. In the qualitative results, we provide comparison on three different training metrics -- MSE, DILATE, and TILDE-Q. To compare quantitative results of DILATE, please refer to our main paper.
