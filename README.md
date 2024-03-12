@@ -40,12 +40,7 @@ In this repository, we provide scripts for the following models:
 We experiment on six benchmark datasets with Autoformer, FEDformer, NSformer, DLinear, TimesNet, Crossformer, PatchTST, and iTransformer. In this repository, we provide quantitative results of those trained with MSE and TILDE-Q as below.
 TILDE-Q can significantly improve the performance of state-of-the-art models, including iTransformer. Especially, in the Weather dataset, TILDE-Q successfully models the periodicity, which is hard to solve with existing metrics.
 
-![alt text](./tables/main_results_w_std.JPG)
-
-![alt text](./tables/NSFormer_results.JPG)
-
-![alt text](./tables/NLinear_results.JPG)
-
+![alt text](./tables/detailed_experimental_results.JPG)
 
 ## Qualitative Examples
 We additionally provide our qualitative examples with all the settings on six datasets and five models in `qualitative_results`. In the qualitative results, we provide comparison on three different training metrics -- MSE, DILATE, and TILDE-Q. To compare the quantitative results of DILATE, please refer to our main paper.
