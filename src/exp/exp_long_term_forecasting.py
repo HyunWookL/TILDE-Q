@@ -32,12 +32,12 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         model_optim = optim.Adam(self.model.parameters(), lr=self.args.learning_rate)
         return model_optim
 
-    def _select_criterion(self):
+    def _select_criterion(self, loss_type):
         from loss.tildeq import tildeq
-        if self.args.loss == "MSE":
+        if loss_type == "MSE":
             criterion = nn.MSELoss()
         else:
-            criterion = lambda x,y: tildeq(x,y, alpha = self.args.alpha, gamma = self.args.gamma, _mean = not self.args.denormalize)
+            criterion = lambda x,y: tildeq(x,y, alpha = self.args.alpha, gamma = self.args.gamma)
         return criterion
 
     def vali(self, vali_data, vali_loader, criterion):
@@ -97,11 +97,8 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         early_stopping = EarlyStopping(patience=self.args.patience, verbose=True)
 
         model_optim = self._select_optimizer()
-        criterion = self._select_criterion()
-        if self.args.test_loss == 'MSE':
-            test_criterion = nn.MSELoss()
-        else:
-            test_criterion = self._select_criterion()
+        criterion = self._select_criterion(self.args.loss)
+        test_criterion = self._select_criterion(self.args.test_loss)
 
         if self.args.use_amp:
             scaler = torch.cuda.amp.GradScaler()
