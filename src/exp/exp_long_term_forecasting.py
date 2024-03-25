@@ -33,11 +33,19 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         return model_optim
 
     def _select_criterion(self, loss_type):
-        from loss.tildeq import tildeq
+        from loss.tildeq import *
         if loss_type == "MSE":
             criterion = nn.MSELoss()
-        else:
+        elif loss_type == "TILDEQ":
             criterion = lambda x,y: tildeq(x,y, alpha = self.args.alpha, gamma = self.args.gamma)
+        elif loss_type == "ASHIFT":
+            criterion = ashift_loss
+        elif loss_type == "PHASE":
+            criterion = phase_loss
+        elif loss_type == "AMP":
+            criterion = amp_loss
+        else:
+            raise ValueError("Please specify the valid loss type from [MSE, TILDEQ, ASHIFT, PHASE, AMP]!")
         return criterion
 
     def vali(self, vali_data, vali_loader, criterion):

@@ -42,6 +42,25 @@ TILDE-Q can significantly improve the performance of state-of-the-art models, in
 
 ![alt text](./tables/detailed_experimental_results.JPG)
 
+### Experimental Results with DILATE
+We additionally provide experimental results with DILATE in univariate forecasting task. Please note that DILATE only supports univariate forecasting. We perform experiment with six benchmark dataset on Autoformer.
+
+![alt text](./tables/Autoformer_results.JPG)
+
+
+### Ablation Study Results
+We have conducted an ablation study with varying hyperparameters and each sub-loss. Each experiment was performed three times and reported on average. As the table shows, TILDE-Q is not hyperparameter-sensitive except for the large gamma value on long-term or bursty data. Furthermore, visualization of the amplitude shift, phase shift, and uniform amplification loss functions implies two facts -- 1) each subloss could achieve invariance for corresponding distortion, and 2) all three sublosses complement each other to generate better forecasting performance in both shape-awareness and traditional metrics (i.e., MSE and MAE).
+
+![alt text](./tables/Ablation_results.JPG)
+
+![alt text](./qualitative_results/Ablation/Ablation_gammagamma.jpg)
+
+![alt text](./qualitative_results/Ablation/Ablation_ashift.jpg)
+
+![alt text](./qualitative_results/Ablation/Ablation_phase.jpg)
+
+![alt text](./qualitative_results/Ablation/Ablation_amp.jpg)
+
 ## Qualitative Examples
 We additionally provide our qualitative examples with all the settings on six datasets and five models in `qualitative_results`. In the qualitative results, we provide comparison on three different training metrics -- MSE, DILATE, and TILDE-Q. To compare the quantitative results of DILATE, please refer to our main paper.
 Below is one example with the Weather dataset, 96-Input-720-Output setting with NSFormer.
