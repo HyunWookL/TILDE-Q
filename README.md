@@ -53,7 +53,7 @@ We have conducted an ablation study with varying hyperparameters and each sub-lo
 
 ![alt text](./tables/Ablation_results.JPG)
 
-![alt text](./qualitative_results/Ablation/Ablation_gammagamma.jpg)
+![alt text](./qualitative_results/Ablation/Ablation_alphagamma.jpg)
 
 ![alt text](./qualitative_results/Ablation/Ablation_ashift.jpg)
 
